@@ -1,22 +1,3 @@
-def menor_faturamento_dia(vetor):
-    menor_valor = None
-    dia_do_menor_valor = None
-    for x in vetor:
-        if x['valor'] != 0 and (menor_valor is None or x['valor'] < menor_valor):
-            menor_valor = x['valor']
-            dia_do_menor_valor = x['dia']
-    return dia_do_menor_valor, menor_valor
-
-def dia_com_maior_valor(vetor):
-    max_valor = 0
-    max_dia = None
-    for y in vetor:
-        if y['valor'] != 0 and y['valor'] > max_valor:
-            max_valor = y['valor']
-            max_dia = y['dia']
-    
-    return max_dia, max_valor
-
 def ler_xml():
     import xml.etree.ElementTree as ET
 
@@ -36,6 +17,25 @@ def ler_xml():
 
         dados.append({'dia': dia, 'valor': valor})
     return dados
+
+def menor_faturamento_dia(vetor):
+    menor_valor = None
+    dia_do_menor_valor = None
+    for x in vetor:
+        if x['valor'] != 0 and (menor_valor is None or x['valor'] < menor_valor):
+            menor_valor = x['valor']
+            dia_do_menor_valor = x['dia']
+    return dia_do_menor_valor, menor_valor
+
+def dia_com_maior_valor(vetor):
+    max_valor = 0
+    max_dia = None
+    for y in vetor:
+        if y['valor'] != 0 and y['valor'] > max_valor:
+            max_valor = y['valor']
+            max_dia = y['dia']
+    
+    return max_dia, max_valor
 
 def media_dos_valores(dados):
     valores_nao_nulos = [x['valor'] for x in dados if x['valor'] != 0]
